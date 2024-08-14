@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>階層型スティッキーヘッダー</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding: 0;
+        }
+
+        .sticky-header {
+            position: -webkit-sticky; /* For Safari */
+            position: sticky;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .header-parent {
+            background-color: #444;
+            height: 120px;
+            top: 0;
+            color: #fff;
+            padding: 0 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* 上に固定 */
+            align-items: flex-start; /* 左に固定 */
+        }
+
+        .header-parent h1 {
+            margin: 0;
+            font-size: 24px;
+            line-height: 40px;
+        }
+
+        .header-child {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 40px; /* 親ヘッダーの高さと一致 */
+            background-color: #555;
+            height: 80px;
+            color: #fff;
+            padding: 0 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* 上に固定 */
+            align-items: flex-start; /* 左に固定 */
+        }
+
+        .header-child h2 {
+            margin: 0;
+            font-size: 20px;
+            line-height: 30px;
+        }
+
+        .header-grandchild {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 80px; /* 親 + 子ヘッダーの高さと一致 */
+            background-color: #666;
+            height: 40px;
+            color: #fff;
+            padding: 0 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* 上に固定 */
+            align-items: flex-start; /* 左に固定 */
+        }
+
+        .header-grandchild h3 {
+            margin: 0;
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+        .header-content {
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="headers-container"></div>
+
+    <script>
+        const headersData = [
+            {
+                "type": "parent",
+                "text": "1-1 換気機振動測定報告書　（管理番号：A12345）",
+                "content": "<h3>図面</h3><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' style='width:100%;'>",
+                "children": [
+                    {
+                        "type": "child",
+                        "text": "機器情報",
+                        "content": "<table>\n    <tr>\n        <td><label for=\"instrument\">測定器:</label></td>\n        <td><input type=\"text\" id=\"instrument\" name=\"instrument\" style=\"width: 100%;\"></td>\n    </tr>\n    <tr>\n        <td><label for=\"manufacturer\">製造者名:</label></td>\n        <td><input type=\"text\" id=\"manufacturer\" name=\"manufacturer\" style=\"width: 100%;\"></td>\n    </tr>\n    <tr>\n        <td><label for=\"model\">型式:</label></td>\n        <td><input type=\"text\" id=\"model\" name=\"model\" style=\"width: 100%;\"></td>\n    </tr>\n</table>",
+                        "children": [
+                            {
+                                "type": "grandchild",
+                                "text": "スティッキーヘッダー 1-2-1",
+                                "content": "<p>孫ヘッダー1-2-1のコンテンツ</p>"
+                            },
+                            {
+                                "type": "grandchild",
+                                "text": "スティッキーヘッダー 1-2-2",
+                                "content": "<p>孫ヘッダー1-2-2のコンテンツ</p>"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "parent",
+                "text": "スティッキーヘッダー 2",
+                "content": "<p>親ヘッダー2のコンテンツ</p>",
+                "children": []
+            },
+            {
+                "type": "parent",
+                "text": "スティッキーヘッダー 3",
+                "content": "<p>親ヘッダー3のコンテンツ</p>",
+                "children": []
+            }
+        ];
+
+        const headersContainer = document.getElementById('headers-container');
+        let zIndexCounter = 1;
+
+        function createHeaderElement(type, text, zIndex) {
+            const headerDiv = document.createElement('div');
+            headerDiv.classList.add('sticky-header', `header-${type}`);
+            headerDiv.style.zIndex = zIndex;
+            headerDiv.innerHTML = `<h${type === 'parent' ? '1' : type === 'child' ? '2' : '3'}>${text}</h${type === 'parent' ? '1' : type === 'child' ? '2' : '3'}>`;
+            return headerDiv;
+        }
+
+        function createContentElement(content) {
+            const contentDiv = document.createElement('div');
+            contentDiv.classList.add('header-content');
+            contentDiv.innerHTML = content;
+            return contentDiv;
+        }
+
+        function renderHeaders(headers, parentElement) {
+            headers.forEach(header => {
+                const headerElement = createHeaderElement(header.type, header.text, zIndexCounter++);
+                parentElement.appendChild(headerElement);
+
+                if (header.content) {
+                    const contentElement = createContentElement(header.content);
+                    parentElement.appendChild(contentElement);
+                }
+
+                if (header.children && header.children.length > 0) {
+                    renderHeaders(header.children, parentElement);
+                }
+            });
+        }
+
+        renderHeaders(headersData, headersContainer);
+    </script>
+
+</body>
+</html>
