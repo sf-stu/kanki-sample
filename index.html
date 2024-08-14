@@ -90,14 +90,28 @@
         const headersData = [
             {
                 "type": "parent",
-                "text": "1-1 換気機振動測定報告書　（管理番号：A12345）",
+                "text": "管理番号：A12345",
                 "content": "<h3>図面</h3><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' style='width:100%;'>",
                 "children": [
                     {
                         "type": "child",
                         "text": "機器情報",
                         "content": "<table>\n    <tr>\n        <td><label for=\"instrument\">測定器:</label></td>\n        <td><input type=\"text\" id=\"instrument\" name=\"instrument\" style=\"width: 100%;\"></td>\n    </tr>\n    <tr>\n        <td><label for=\"manufacturer\">製造者名:</label></td>\n        <td><input type=\"text\" id=\"manufacturer\" name=\"manufacturer\" style=\"width: 100%;\"></td>\n    </tr>\n    <tr>\n        <td><label for=\"model\">型式:</label></td>\n        <td><input type=\"text\" id=\"model\" name=\"model\" style=\"width: 100%;\"></td>\n    </tr>\n</table>",
-                        "children": [
+                        "children": []
+                    }
+                    {
+                        "type": "child",
+                        "text": "振動許容値",
+                        "content": "<table>\n    <tr>\n        <td><label for=\"instrument\">測定器:</label></td>\n        <td><input type=\"text\" id=\"instrument\" name=\"instrument\" style=\"width: 100%;\"></td>\n    </tr>\n    <tr>\n        <td><label for=\"manufacturer\">製造者名:</label></td>\n        <td><input type=\"text\" id=\"manufacturer\" name=\"manufacturer\" style=\"width: 100%;\"></td>\n    </tr>\n    <tr>\n        <td><label for=\"model\">型式:</label></td>\n        <td><input type=\"text\" id=\"model\" name=\"model\" style=\"width: 100%;\"></td>\n    </tr>\n</table>",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "type": "parent",
+                "text": "スティッキーヘッダー 2",
+                "content": "<p>親ヘッダー2のコンテンツ</p>",
+                "children": [
                             {
                                 "type": "grandchild",
                                 "text": "スティッキーヘッダー 1-2-1",
@@ -109,14 +123,6 @@
                                 "content": "<p>孫ヘッダー1-2-2のコンテンツ</p>"
                             }
                         ]
-                    }
-                ]
-            },
-            {
-                "type": "parent",
-                "text": "スティッキーヘッダー 2",
-                "content": "<p>親ヘッダー2のコンテンツ</p>",
-                "children": []
             },
             {
                 "type": "parent",
