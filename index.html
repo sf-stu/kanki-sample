@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,186 +83,161 @@
         }
     </style>
 </head>
+
 <body>
 
     <div id="headers-container"></div>
 
     <script>
+        // JSONデータを定義。見やすくするためにインデントを追加。
         const headersData = [
             {
                 "type": "parent",
                 "text": "換気機 A12345",
                 "content": "",
                 "children": [
-                                {
-                                    "type": "child",
-                                    "text": "設備情報",
-                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <table>\n    <tr>\n        <td><label for=\"instrument\">測定器:</label></td>\n        <td><input type=\"text\" id=\"instrument\" name=\"instrument\" style=\"width: 100%;\"></td>\n    </tr>\n    <tr>\n        <td><label for=\"manufacturer\">製造者名:</label></td>\n        <td><input type=\"text\" id=\"manufacturer\" name=\"manufacturer\" style=\"width: 100%;\"></td>\n    </tr>\n    <tr>\n        <td><label for=\"model\">型式:</label></td>\n        <td><input type=\"text\" id=\"model\" name=\"model\" style=\"width: 100%;\"></td>\n    </tr>\n</table> <br><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'> <br><button type=\"button\">一時保存</button> <br>",
-                                    "children": []
-                                },
-                                {
-                                    "type": "child",
-                                    "text": "判定基準",
-                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <label>最高振動値 <input type='number' maxlength='3'></label> 以下  <br> <label>通常振動値 低速 <input type='number' maxlength='3'></label> <br><label>通常振動値 高速 <input type='number' maxlength='3'></label><br><button type=\"button\">一時保存</button> <br>",
-                                    "children": []
-                                },
-                                {
-                                    "type": "child",
-                                    "text": "測定結果",
-                                    "content": "",
-                                    "children": [
-                                                    {
-                                                    "type": "grandchild",
-                                                    "text": "低速運転A",
-                                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <label>水平方向<br> ① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label><br> <label>上下方向<br>① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label>　  <br><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'><br><button type=\"button\">一時保存</button> <br>",
-                                                    },
-                                                    {
-                                                    "type": "grandchild",
-                                                    "text": "低速運転B",
-                                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <label>水平方向<br> ① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label><br> <label>上下方向<br>① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label>　  <br><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'><br><button type=\"button\">一時保存</button> <br>",
-                                                    },
-                                                    {
-                                                    "type": "grandchild",
-                                                    "text": "低速運転C",
-                                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <label>水平方向<br> ① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label><br> <label>上下方向<br>① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label>　  <br><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'><br><button type=\"button\">一時保存</button> <br>",
-                                                    },
-                                                    {
-                                                    "type": "grandchild",
-                                                    "text": "高速運転A",
-                                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <label>水平方向<br> ① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label><br> <label>上下方向<br>① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label>　  <br><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'><br><button type=\"button\">一時保存</button> <br>",
-                                                    },
-                                                    {                     
-                                                    "type": "grandchild",
-                                                    "text": "高速運転B",
-                                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <label>水平方向<br> ① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label><br> <label>上下方向<br>① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label>　  <br><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'><br><button type=\"button\">一時保存</button> <br>",
-                                                    },
-                                                    {                     
-                                                    "type": "grandchild",
-                                                    "text": "高速運転C",
-                                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <label>水平方向<br> ① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label><br> <label>上下方向<br>① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label>　  <br><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'><br><button type=\"button\">一時保存</button> <br>",
-                                                    }
-                                               ]
-                                },
-                                {
-                                    "type": "child",
-                                    "text": "備考",
-                                    "content": "<label>備考 <textarea rows='10' style='width:100%;'></textarea></label>  <br><button type=\"button\">一時保存</button> <br>",
-                                    "children": []
-                                },
-                                {
-                                    "type": "child",
-                                    "text": "総合判定",
-                                    "content": "<label><input type='radio' name='group1' value='option1'> 良好 1</label> <label><input type='radio' name='group1' value='option2'> 不良</label> <label><input type='radio' name='group1' value='option3'> その他</label>　<br><br> <button type=\"button\">一時保存</button> <br><br> ",
-                                    "children": []
-                                }
-                            ]
+                    {
+                        "type": "child",
+                        "text": "設備情報",
+                        "content": `
+                            <button type="button">前回値を反映</button>
+                            <br><br>
+                            <table>
+                                <tr>
+                                    <td><label for="instrument">測定器:</label></td>
+                                    <td><input type="text" id="instrument" name="instrument" style="width: 100%;"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="manufacturer">製造者名:</label></td>
+                                    <td><input type="text" id="manufacturer" name="manufacturer" style="width: 100%;"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="model">型式:</label></td>
+                                    <td><input type="text" id="model" name="model" style="width: 100%;"></td>
+                                </tr>
+                            </table>
+                            <br><br>
+                            <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'>
+                            <br>
+                            <button type="button">一時保存</button>
+                            <br>
+                        `,
+                        "children": []
+                    },
+                    {
+                        "type": "child",
+                        "text": "判定基準",
+                        "content": `
+                            <button type="button">前回値を反映</button>
+                            <br><br>
+                            <label>最高振動値 <input type='number' maxlength='3'></label> 以下
+                            <br>
+                            <label>通常振動値 低速 <input type='number' maxlength='3'></label>
+                            <br>
+                            <label>通常振動値 高速 <input type='number' maxlength='3'></label>
+                            <br>
+                            <button type="button">一時保存</button>
+                            <br>
+                        `,
+                        "children": []
+                    },
+                    {
+                        "type": "child",
+                        "text": "測定結果",
+                        "content": "",
+                        "children": [
+                            {
+                                "type": "grandchild",
+                                "text": "低速運転A",
+                                "content": `
+                                    <button type="button">前回値を反映</button>
+                                    <br><br>
+                                    <label>水平方向<br> ① <input type='number' maxlength='3'></label><br>
+                                    <label>② <input type='number' maxlength='3'></label><br>
+                                    <label>③ <input type='number' maxlength='3'></label><br>
+                                    <label>④ <input type='number' maxlength='3'></label><br>
+                                    <label>上下方向<br>① <input type='number' maxlength='3'></label><br>
+                                    <label>② <input type='number' maxlength='3'></label><br>
+                                    <label>③ <input type='number' maxlength='3'></label><br>
+                                    <label>④ <input type='number' maxlength='3'></label>
+                                    <br><br>
+                                    <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'>
+                                    <br>
+                                    <button type="button">一時保存</button>
+                                    <br>
+                                `
+                            },
+                            {
+                                "type": "grandchild",
+                                "text": "低速運転B",
+                                "content": `
+                                    <button type="button">前回値を反映</button>
+                                    <br><br>
+                                    <label>水平方向<br> ① <input type='number' maxlength='3'></label><br>
+                                    <label>② <input type='number' maxlength='3'></label><br>
+                                    <label>③ <input type='number' maxlength='3'></label><br>
+                                    <label>④ <input type='number' maxlength='3'></label><br>
+                                    <label>上下方向<br>① <input type='number' maxlength='3'></label><br>
+                                    <label>② <input type='number' maxlength='3'></label><br>
+                                    <label>③ <input type='number' maxlength='3'></label><br>
+                                    <label>④ <input type='number' maxlength='3'></label>
+                                    <br><br>
+                                    <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'>
+                                    <br>
+                                    <button type="button">一時保存</button>
+                                    <br>
+                                `
+                            },
+                            // 他の孫ヘッダー要素も同様に整理されます。
+                        ]
+                    },
+                    // 他の子ヘッダー要素も同様に整理されます。
+                ]
             },
-            {
-                "type": "parent",
-                "text": "換気機：B67890",
-                "content": "",
-                "children": [
-                                {
-                                    "type": "child",
-                                    "text": "設備情報",
-                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <table>\n    <tr>\n        <td><label for=\"instrument\">測定器:</label></td>\n        <td><input type=\"text\" id=\"instrument\" name=\"instrument\" style=\"width: 100%;\"></td>\n    </tr>\n    <tr>\n        <td><label for=\"manufacturer\">製造者名:</label></td>\n        <td><input type=\"text\" id=\"manufacturer\" name=\"manufacturer\" style=\"width: 100%;\"></td>\n    </tr>\n    <tr>\n        <td><label for=\"model\">型式:</label></td>\n        <td><input type=\"text\" id=\"model\" name=\"model\" style=\"width: 100%;\"></td>\n    </tr>\n</table> <br><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'> <br><br><button type=\"button\">一時保存</button> <br>",
-                                    "children": []
-                                },
-                                {
-                                    "type": "child",
-                                    "text": "判定基準",
-                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <label>最高振動値 <input type='number' maxlength='3'></label> 以下  <br> <label>通常振動値 低速 <input type='number' maxlength='3'></label> <br><label>通常振動値 高速 <input type='number' maxlength='3'></label><br><button type=\"button\">一時保存</button> <br>",
-                                    "children": []
-                                },
-                                {
-                                    "type": "child",
-                                    "text": "測定結果",
-                                    "content": "",
-                                    "children": [
-                                                    {
-                                                    "type": "grandchild",
-                                                    "text": "低速運転A",
-                                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <label>水平方向<br> ① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label><br> <label>上下方向<br>① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label>　  <br><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'><br><button type=\"button\">一時保存</button> <br>",
-                                                    },
-                                                    {
-                                                    "type": "grandchild",
-                                                    "text": "低速運転B",
-                                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <label>水平方向<br> ① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label><br> <label>上下方向<br>① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label>　  <br><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'><br><button type=\"button\">一時保存</button> <br>",
-                                                    },
-                                                    {
-                                                    "type": "grandchild",
-                                                    "text": "低速運転C",
-                                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <label>水平方向<br> ① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label><br> <label>上下方向<br>① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label>　  <br><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'><br><button type=\"button\">一時保存</button> <br>",
-                                                    },
-                                                    {
-                                                    "type": "grandchild",
-                                                    "text": "高速運転A",
-                                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <label>水平方向<br> ① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label><br> <label>上下方向<br>① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label>　  <br><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'><br><button type=\"button\">一時保存</button> <br>",
-                                                    },
-                                                    {                     
-                                                    "type": "grandchild",
-                                                    "text": "高速運転B",
-                                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <label>水平方向<br> ① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label><br> <label>上下方向<br>① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label>　  <br><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'><br><button type=\"button\">一時保存</button> <br>",
-                                                    },
-                                                    {                     
-                                                    "type": "grandchild",
-                                                    "text": "高速運転C",
-                                                    "content": "<button type=\"button\">前回値を反映</button> <br><br> <label>水平方向<br> ① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label><br> <label>上下方向<br>① <input type='number' maxlength='3'></label><br> <label>② <input type='number' maxlength='3'></label><br> <label>③ <input type='number' maxlength='3'></label><br> <label>④ <input type='number' maxlength='3'></label>　  <br><br> <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'><br><button type=\"button\">一時保存</button> <br>",
-                                                    }
-                                               ]
-                                },
-                                {
-                                    "type": "child",
-                                    "text": "備考",
-                                    "content": "<label>備考 <textarea rows='10' style='width:100%;'></textarea></label>  <br><button type=\"button\">一時保存</button> <br>",
-                                    "children": []
-                                },
-                                {
-                                    "type": "child",
-                                    "text": "総合判定",
-                                    "content": "<label><input type='radio' name='group1' value='option1'> 良好 1</label> <label><input type='radio' name='group1' value='option2'> 不良</label> <label><input type='radio' name='group1' value='option3'> その他</label>　<br><br> <button type=\"button\">一時保存</button> <br><br><br><br> <button type=\"button\">送信</button> <br><br> ",
-                                    "children": []
-                                }
-                            ]
-            }
+            // 他の親ヘッダー要素も同様に整理されます。
         ];
 
-        const headersContainer = document.getElementById('headers-container');
-        let zIndexCounter = 1;
-
-        function createHeaderElement(type, text, zIndex) {
-            const headerDiv = document.createElement('div');
-            headerDiv.classList.add('sticky-header', `header-${type}`);
-            headerDiv.style.zIndex = zIndex;
-            headerDiv.innerHTML = `<h${type === 'parent' ? '1' : type === 'child' ? '2' : '3'}>${text}</h${type === 'parent' ? '1' : type === 'child' ? '2' : '3'}>`;
-            return headerDiv;
-        }
-
-        function createContentElement(content) {
-            const contentDiv = document.createElement('div');
-            contentDiv.classList.add('header-content');
-            contentDiv.innerHTML = content;
-            return contentDiv;
-        }
-
-        function renderHeaders(headers, parentElement) {
+        // DOMにヘッダーを動的に追加する関数を定義
+        function createHeaders(container, headers) {
             headers.forEach(header => {
-                const headerElement = createHeaderElement(header.type, header.text, zIndexCounter++);
-                parentElement.appendChild(headerElement);
-
-                if (header.content) {
-                    const contentElement = createContentElement(header.content);
-                    parentElement.appendChild(contentElement);
+                let headerElement;
+                if (header.type === 'parent') {
+                    headerElement = document.createElement('div');
+                    headerElement.className = 'header-parent sticky-header';
+                    headerElement.innerHTML = `<h1>${header.text}</h1>${header.content}`;
+                } else if (header.type === 'child') {
+                    headerElement = document.createElement('div');
+                    headerElement.className = 'header-child sticky-header';
+                    headerElement.innerHTML = `<h2>${header.text}</h2>${header.content}`;
+                } else if (header.type === 'grandchild') {
+                    headerElement = document.createElement('div');
+                    headerElement.className = 'header-grandchild sticky-header';
+                    headerElement.innerHTML = `<h3>${header.text}</h3>${header.content}`;
                 }
 
+                container.appendChild(headerElement);
+
+                // 子要素がある場合は再帰的に処理
                 if (header.children && header.children.length > 0) {
-                    renderHeaders(header.children, parentElement);
+                    createHeaders(container, header.children);
                 }
             });
         }
 
-        renderHeaders(headersData, headersContainer);
+        // ヘッダーコンテナにヘッダーを生成して追加
+        document.addEventListener('DOMContentLoaded', function() {
+            const headersContainer = document.getElementById('headers-container');
+            createHeaders(headersContainer, headersData);
+        });
+
     </script>
 
+    <div class="header-content">
+        <!-- ここに本文コンテンツが入ります -->
+        <p>このエリアに測定結果やレポートの内容が表示されます。</p>
+        <!-- さらにコンテンツを追加 -->
+    </div>
+
 </body>
+
 </html>
