@@ -196,48 +196,42 @@
             },
             // 他の親ヘッダー要素も同様に整理されます。
         ];
+        const headersContainer = document.getElementById('headers-container');
+        let zIndexCounter = 1;
 
-        // DOMにヘッダーを動的に追加する関数を定義
-        function createHeaders(container, headers) {
+        function createHeaderElement(type, text, zIndex) {
+            const headerDiv = document.createElement('div');
+            headerDiv.classList.add('sticky-header', `header-${type}`);
+            headerDiv.style.zIndex = zIndex;
+            headerDiv.innerHTML = `<h${type === 'parent' ? '1' : type === 'child' ? '2' : '3'}>${text}</h${type === 'parent' ? '1' : type === 'child' ? '2' : '3'}>`;
+            return headerDiv;
+        }
+
+        function createContentElement(content) {
+            const contentDiv = document.createElement('div');
+            contentDiv.classList.add('header-content');
+            contentDiv.innerHTML = content;
+            return contentDiv;
+        }
+
+        function renderHeaders(headers, parentElement) {
             headers.forEach(header => {
-                let headerElement;
-                if (header.type === 'parent') {
-                    headerElement = document.createElement('div');
-                    headerElement.className = 'header-parent sticky-header';
-                    headerElement.innerHTML = `<h1>${header.text}</h1>${header.content}`;
-                } else if (header.type === 'child') {
-                    headerElement = document.createElement('div');
-                    headerElement.className = 'header-child sticky-header';
-                    headerElement.innerHTML = `<h2>${header.text}</h2>${header.content}`;
-                } else if (header.type === 'grandchild') {
-                    headerElement = document.createElement('div');
-                    headerElement.className = 'header-grandchild sticky-header';
-                    headerElement.innerHTML = `<h3>${header.text}</h3>${header.content}`;
+                const headerElement = createHeaderElement(header.type, header.text, zIndexCounter++);
+                parentElement.appendChild(headerElement);
+
+                if (header.content) {
+                    const contentElement = createContentElement(header.content);
+                    parentElement.appendChild(contentElement);
                 }
 
-                container.appendChild(headerElement);
-
-                // 子要素がある場合は再帰的に処理
                 if (header.children && header.children.length > 0) {
-                    createHeaders(container, header.children);
+                    renderHeaders(header.children, parentElement);
                 }
             });
         }
 
-        // ヘッダーコンテナにヘッダーを生成して追加
-        document.addEventListener('DOMContentLoaded', function() {
-            const headersContainer = document.getElementById('headers-container');
-            createHeaders(headersContainer, headersData);
-        });
-
+        renderHeaders(headersData, headersContainer);
     </script>
 
-    <div class="header-content">
-        <!-- ここに本文コンテンツが入ります -->
-        <p>このエリアに測定結果やレポートの内容が表示されます。</p>
-        <!-- さらにコンテンツを追加 -->
-    </div>
-
 </body>
-
 </html>
