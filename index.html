@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1-1 換気機振動測定報告書5</title>
+    <title>1-1 換気機振動測定報告書6</title>
     <style>
         body {
             margin: 0;
@@ -289,7 +289,66 @@
                             },
                             {
                                 "type": "grandchild",
-                                "text": "低速運転B",
+                                "text": "低速運転C",
+                                "content": `
+                                <br> 
+                                <table>
+                                    <tr>
+                                        <td colspan="2">
+                                            <button type="button">前回値を反映</button>
+                                        </td>
+                                    <tr>
+                                        <td>水平方向</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">①:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">②:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">③:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">④:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>上下方向</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">①:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">②:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">③:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">④:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <button type="button">一時保存</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br><br>
+                                <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'>
+                                <br><br>
+                                `
+                            }, // 孫ヘッダー要素
+                            {
+                                "type": "grandchild",
+                                "text": "低速運転D",
                                 "content": `
                                 <br> 
                                 <table>
@@ -347,7 +406,25 @@
                                 `
                             }, // 孫ヘッダー要素
                         ]
-                    }, // 子ヘッダー要素
+					},
+					{ // 子ヘッダー要素
+                        "type": "child",
+                        "text": "備考",
+                        "content": `
+                            <table>
+                                <tr>
+                                    <td colspan="2">
+                                        <button type="button">前回値を反映</button>
+                                    </td>
+                                <tr>
+                                    <td>
+										<label>備考 <textarea rows='10' style='width:100%;'></textarea></label>
+		 							</td>
+                                </tr>
+                            </table>
+                        `,
+                        "children": []
+					}
                 ]
             }, // 親ヘッダー要素
         ];
