@@ -93,7 +93,7 @@
         const headersData = [
             { // 親ヘッダー要素
                 "type": "parent",
-                "text": "換気機 A12345",
+                "text": "換気機① A12345",
                 "content": "",
                 "children": [
                     { // 子ヘッダー要素
@@ -411,6 +411,7 @@
 	                        "type": "child",
 	                        "text": "備考",
 	                        "content": `
+				    <br><br>
 	                            <table>
 					<tr>
 						<td colspan="2">
@@ -428,13 +429,365 @@
 						</td>
 					</tr>
 	                            </table>
+				    <br><br>
                         `,
                         "children": []
 			},
 			{ // 子ヘッダー要素
 	                        "type": "child",
 	                        "text": "総合判定",
-	                        "content": "<label><input type='radio' name='group1' value='option1'> 良好 1</label> <label><input type='radio' name='group1' value='option2'> 不良</label> <label><input type='radio' name='group1' value='option3'> その他</label>　<br><br> <button type=\"button\">一時保存</button> <br><br><br><br> <button type=\"button\">送信</button> <br><br> ",
+	                        "content": "<label><input type='radio' name='group1' value='option1'> 良好 1</label> <label><input type='radio' name='group1' value='option2'> 不良</label> <label><input type='radio' name='group1' value='option3'> その他</label>　<br><br> <button type=\"button\">一時保存</button> <br><br><br><br> <button type=\"button\">送信</button> <br><br><br><br>",
+                        "children": []
+			}
+                ]
+            }, // 親ヘッダー要素
+		
+            { // 親ヘッダー要素
+                "type": "parent",
+                "text": "換気機② B98765",
+                "content": "",
+                "children": [
+                    { // 子ヘッダー要素
+                        "type": "child",
+                        "text": "設備情報",
+                        "content": `
+                            <br><br>
+                            <table>
+                                <tr>
+                                    <td colspan="2">
+                                        <button type="button">前回値を反映</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="instrument">測定器:</label></td>
+                                    <td><input type="text" id="instrument" name="instrument" style="width: 100%;"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="manufacturer">製造者名:</label></td>
+                                    <td><input type="text" id="manufacturer" name="manufacturer" style="width: 100%;"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="model">型式:</label></td>
+                                    <td><input type="text" id="model" name="model" style="width: 100%;"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <button type="button">一時保存</button>
+                                    </td>
+                                </tr>
+                            <br><br>
+                            </table>
+                            <img src='https://www.shutoko.jp/ss/shutokonews/assets/images/virtual/2023_06/virtual_img_15.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'>
+                            <br><br>
+                        `,
+                        "children": []
+                    },
+                    {
+                        "type": "child",
+                        "text": "判定基準",
+                        "content": `
+                            <br><br>
+                            <table>
+                                <tr>
+                                    <td colspan="2">
+                                        <button type="button">前回値を反映</button>
+                                    </td>
+                                <tr>
+                                    <td><label for="max-vibration">最高振動値:</label></td>
+                                    <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    <td>以下</td>
+                                </tr>
+                                <tr>
+                                    <td><label for="low-vibration">通常振動値 低速:</label></td>
+                                    <td><input type="number" id="low-vibration" maxlength="3"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="high-vibration">通常振動値 高速:</label></td>
+                                    <td><input type="number" id="high-vibration" maxlength="3"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <button type="button">一時保存</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br> <br>
+                        `,
+                        "children": []
+                    },
+                    {
+                        "type": "child",
+                        "text": "測定結果",
+                        "content": "",
+                        "children": [
+                            {  // 孫ヘッダー要素
+                                "type": "grandchild",
+                                "text": "低速運転A",
+                                "content": `                            
+                                <br> 
+                                <table>
+                                    <tr>
+                                        <td colspan="2">
+                                            <button type="button">前回値を反映</button>
+                                        </td>
+                                    <tr>
+                                        <td>水平方向</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">①:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">②:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">③:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">④:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>上下方向</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">①:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">②:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">③:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">④:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <button type="button">一時保存</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br><br>
+                                <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'>
+                                <br><br>
+                                `
+                            },
+                            {
+                                "type": "grandchild",
+                                "text": "低速運転B",
+                                "content": `
+                                <br> 
+                                <table>
+                                    <tr>
+                                        <td colspan="2">
+                                            <button type="button">前回値を反映</button>
+                                        </td>
+                                    <tr>
+                                        <td>水平方向</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">①:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">②:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">③:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">④:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>上下方向</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">①:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">②:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">③:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">④:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <button type="button">一時保存</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br><br>
+                                <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'>
+                                <br><br>
+                                `
+                            },
+                            {
+                                "type": "grandchild",
+                                "text": "低速運転C",
+                                "content": `
+                                <br> 
+                                <table>
+                                    <tr>
+                                        <td colspan="2">
+                                            <button type="button">前回値を反映</button>
+                                        </td>
+                                    <tr>
+                                        <td>水平方向</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">①:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">②:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">③:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">④:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>上下方向</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">①:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">②:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">③:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">④:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <button type="button">一時保存</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br><br>
+                                <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'>
+                                <br><br>
+                                `
+                            }, // 孫ヘッダー要素
+                            {
+                                "type": "grandchild",
+                                "text": "低速運転D",
+                                "content": `
+                                <br> 
+                                <table>
+                                    <tr>
+                                        <td colspan="2">
+                                            <button type="button">前回値を反映</button>
+                                        </td>
+                                    <tr>
+                                        <td>水平方向</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">①:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">②:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">③:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">④:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>上下方向</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">①:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">②:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">③:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="max-vibration">④:</label></td>
+                                        <td><input type="number" id="max-vibration" maxlength="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <button type="button">一時保存</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br><br>
+                                <img src='https://genba-story.com/fukushima4/image/hyoujun_danmen.jpg' alt='画像がここに表示されます' style='max-width:100%;' id='imagePreview'>
+                                <br><br>
+                                `
+                            }, // 孫ヘッダー要素
+                        ]
+			},
+			{ // 子ヘッダー要素
+	                        "type": "child",
+	                        "text": "備考",
+	                        "content": `
+				    <br><br>
+	                            <table>
+					<tr>
+						<td colspan="2">
+						<button type="button">前回値を反映</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<label> <textarea rows='10' style='width:100%;'></textarea></label>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						    <button type="button">一時保存</button>
+						</td>
+					</tr>
+	                            </table>
+				    <br><br>
+                        `,
+                        "children": []
+			},
+			{ // 子ヘッダー要素
+	                        "type": "child",
+	                        "text": "総合判定",
+	                        "content": "<label><input type='radio' name='group1' value='option1'> 良好 1</label> <label><input type='radio' name='group1' value='option2'> 不良</label> <label><input type='radio' name='group1' value='option3'> その他</label>　<br><br> <button type=\"button\">一時保存</button> <br><br><br><br> <button type=\"button\">送信</button> <br><br><br><br>",
                         "children": []
 			}
                 ]
