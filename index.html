@@ -406,34 +406,40 @@
                                 `
                             }, // 孫ヘッダー要素
                         ]
-					},
-					{ // 子ヘッダー要素
-                        "type": "child",
-                        "text": "備考",
-                        "content": `
-                            <table>
-                                <tr>
-                                    <td colspan="2">
-                                        <button type="button">前回値を反映</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                     <td>備考</td>
-                                </tr>
-                                <tr>
-                                     <td>
-					<label>備考 <textarea rows='10' style='width:100%;'></textarea></label>
-                                     </td>
-                                </tr>
-                                <tr>
-                                        <td colspan="2">
-                                            <button type="button">一時保存</button>
-                                        </td>
-                                </tr>
-                            </table>
+			},
+			{ // 子ヘッダー要素
+	                        "type": "child",
+	                        "text": "備考",
+	                        "content": `
+	                            <table>
+					<tr>
+						<td colspan="2">
+						<button type="button">前回値を反映</button>
+						</td>
+					</tr>
+					<tr>
+						<td>備考</td>
+					</tr>
+					<tr>
+						<td>
+						<label>備考 <textarea rows='10' style='width:100%;'></textarea></label>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						    <button type="button">一時保存</button>
+						</td>
+					</tr>
+	                            </table>
                         `,
                         "children": []
-					}
+			},
+			{ // 子ヘッダー要素
+	                        "type": "child",
+	                        "text": "総合判定",
+	                        "content": "<label><input type='radio' name='group1' value='option1'> 良好 1</label> <label><input type='radio' name='group1' value='option2'> 不良</label> <label><input type='radio' name='group1' value='option3'> その他</label>　<br><br> <button type=\"button\">一時保存</button> <br><br><br><br> <button type=\"button\">送信</button> <br><br> ",
+                        "children": []
+			}
                 ]
             }, // 親ヘッダー要素
         ];
